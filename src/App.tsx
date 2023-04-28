@@ -6,6 +6,7 @@ import {Form} from "./componants/form.tsx";
 import {Title} from "./componants/title.tsx";
 import {FormEvent, useState} from "react";
 import {MyHelmet} from "./componants/helmet.tsx";
+import {Footer} from "./componants/footer.tsx";
 
 
 function getRandomInt(): number {
@@ -66,7 +67,7 @@ function App() {
                         <h2 className={'text-4xl text-center font-bold w-full ' + color}>{sure}</h2>
                         <Form inputDefault={q} className='w-full max-w-md' onSubmit={submit}/>
                     </div>
-
+                    <Footer />
                 </div>
             </div>
         </>
