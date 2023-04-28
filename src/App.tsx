@@ -17,6 +17,8 @@ function App() {
     const [info , setInfo] = useState('')
     const [sure , setSure] = useState('')
     const [color , setColor] = useState('')
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [loading, setLoading] = useState(false);
 
     const params: URLSearchParams = new URLSearchParams(window.location.search)
     let q: string | null = params.get('q')
@@ -35,10 +37,22 @@ function App() {
         const textColor = isEven ? 'text-green-500' : 'text-red-500';
         const infoMessage = isEven ? 'Info sure !' : 'Info pas sure !';
 
-        setBg(bgColor);
-        setSure(infoMessage);
-        setColor(textColor);
-        setInfo(value);
+
+        setLoading(true);
+        if(loading)
+            setInfo('Laisse moi reflechir...')
+
+        setTimeout(() => {
+            setBg(bgColor);
+            setSure(infoMessage);
+            setColor(textColor);
+            setInfo(value);
+            setLoading(false);
+        }, 1000);
+
+
+
+
     }
 
     return (
