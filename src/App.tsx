@@ -6,6 +6,7 @@ import {Form} from "./componants/form.tsx";
 import {Title} from "./componants/title.tsx";
 import {FormEvent, useState} from "react";
 import { Helmet } from "react-helmet";
+import {MyHelmet} from "./componants/helmet.tsx";
 
 
 function getRandomInt(): number {
@@ -43,13 +44,7 @@ function App() {
 
     return (
         <>
-            <Helmet>
-                <title>{sure}</title>
-                <meta property="og:title" content={sure} />
-                <meta property="og:description" content={info} />
-                <meta property="og:type" content='article' />
-                <meta property="og:url" content={window.location.href} />
-            </Helmet>
+            <MyHelmet title={sure} description={info} />
             <div className={bg}>
                 <div className="flex items-center justify-center h-screen">
                     <Title text='Info sur.RE' className='text-4xl text-center font-bold absolute top-0' />
