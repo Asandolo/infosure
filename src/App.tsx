@@ -5,7 +5,6 @@ import './assets/css/App.css'
 import {Form} from "./componants/form.tsx";
 import {Title} from "./componants/title.tsx";
 import {FormEvent, useState} from "react";
-import { Helmet } from "react-helmet";
 import {MyHelmet} from "./componants/helmet.tsx";
 
 
