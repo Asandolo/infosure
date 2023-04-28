@@ -23,30 +23,26 @@ function App() {
         q = ''
 
     function submit (e: FormEvent) {
+        e.preventDefault();
+
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         const value = (e.target as HTMLFormElement).elements.namedItem('q').value;
 
-        if (getRandomInt() % 2 === 0) {
-        // set backgroung color to green
-            setBg('bg-green-200')
-            setSure('Info sure !')
-            setColor('text-green-500')
-        } else {
-        // set backgroung color to red
-            setBg('bg-red-200')
-            setSure('Info pas sure !')
-            setColor('text-red-500')
-        }
-        setInfo(value)
+        const isEven = getRandomInt() % 2 === 0;
+        const bgColor = isEven ? 'bg-green-200' : 'bg-red-200';
+        const textColor = isEven ? 'text-green-500' : 'text-red-500';
+        const infoMessage = isEven ? 'Info sure !' : 'Info pas sure !';
 
-        e.preventDefault()
+        setBg(bgColor);
+        setSure(infoMessage);
+        setColor(textColor);
+        setInfo(value);
     }
 
     return (
         <>
             <div className={bg}>
-
                 <div className="flex items-center justify-center h-screen">
                     <Title text='Info sur.RE' className='text-4xl text-center font-bold absolute top-0' />
                     <div>
