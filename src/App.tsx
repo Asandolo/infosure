@@ -17,10 +17,15 @@ function App() {
     const [sure , setSure] = useState('')
     const [color , setColor] = useState('')
 
+    const params: URLSearchParams = new URLSearchParams(window.location.search)
+    let q: string | null = params.get('q')
+    if (!q)
+        q = ''
+
     function submit (e: FormEvent) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        const value = (e.target as HTMLFormElement).elements.namedItem('infosure').value;
+        const value = (e.target as HTMLFormElement).elements.namedItem('q').value;
 
         if (getRandomInt() % 2 === 0) {
         // set backgroung color to green
@@ -46,7 +51,7 @@ function App() {
                     <div>
                         <h1 className='text-4xl text-center font-bold w-full'>{info}</h1>
                         <h2 className={'text-4xl text-center font-bold w-full ' + color}>{sure}</h2>
-                        <Form className='w-full max-w-md' onSubmit={submit}/>
+                        <Form inputDefault={q} className='w-full max-w-md' onSubmit={submit}/>
                     </div>
 
                 </div>
