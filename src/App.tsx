@@ -4,11 +4,13 @@ import './assets/css/App.css'
 // import {Title} from "./componants/title.tsx";
 import {Form} from "./componants/form.tsx";
 import {Title} from "./componants/title.tsx";
-import {FormEvent, useState} from "react";
+import {FormEvent, useCallback, useState} from "react";
 import {MyHelmet} from "./componants/helmet.tsx";
 import {Footer} from "./componants/footer.tsx";
 import {HelpBox} from "./componants/helpbox.tsx";
-
+import Particles from "react-particles";
+import type { Container, Engine } from "tsparticles-engine";
+import { loadFull } from "tsparticles";
 
 function getRandomInt(): number {
     return Math.floor(Math.random() * 100);
@@ -45,9 +47,24 @@ function App() {
         setInfo(value);
     }
 
+
+    const particlesInit = useCallback(async (engine: Engine) => {
+        console.log(engine);
+
+        // you can initialize the tsParticles instance (engine) here, adding custom shapes or presets
+        // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+        // starting from v2 you can add only the features you need reducing the bundle size
+        await loadFull(engine);
+    }, []);
+
+    const particlesLoaded = useCallback(async (container: Container | undefined) => {
+        await console.log(container);
+    }, []);
+
     return (
         <>
             <MyHelmet title={sure} description={info} />
+            <Particles id="tsparticles" url="particlesjs-config.json" init={particlesInit} loaded={particlesLoaded} />
             <div className={bg}>
                 <div className="flex items-center justify-center h-screen">
                     <HelpBox />
