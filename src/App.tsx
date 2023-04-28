@@ -47,7 +47,7 @@ function App() {
                 <title>{sure}</title>
                 <meta property="og:title" content={sure} />
                 <meta property="og:description" content={info} />
-                <meta property="og:type" content="website" />
+                <meta property="og:type" content='article' />
                 <meta property="og:url" content={window.location.href} />
             </Helmet>
             <div className={bg}>
