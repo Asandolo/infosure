@@ -46,8 +46,9 @@ function App() {
     return (
         <>
             <div className={bg}>
-                <Title text='Info sur.RE' className='text-4xl text-center font-bold' />
+
                 <div className="flex items-center justify-center h-screen">
+                    <Title text='Info sur.RE' className='text-4xl text-center font-bold absolute top-0' />
                     <div>
                         <h1 className='text-4xl text-center font-bold w-full'>{info}</h1>
                         <h2 className={'text-4xl text-center font-bold w-full ' + color}>{sure}</h2>
