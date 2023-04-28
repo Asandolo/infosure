@@ -7,6 +7,7 @@ import {Title} from "./componants/title.tsx";
 import {FormEvent, useState} from "react";
 import {MyHelmet} from "./componants/helmet.tsx";
 import {Footer} from "./componants/footer.tsx";
+import {HelpBox} from "./componants/helpbox.tsx";
 
 
 function getRandomInt(): number {
@@ -49,6 +50,7 @@ function App() {
             <MyHelmet title={sure} description={info} />
             <div className={bg}>
                 <div className="flex items-center justify-center h-screen">
+                    <HelpBox />
                     <Title text='Info sur.RE' className='text-4xl text-center font-bold absolute top-0' />
                     <div>
                         <h1 className='text-4xl text-center font-bold w-full'>{info}</h1>
